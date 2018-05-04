@@ -24,8 +24,8 @@ end
 
 Benchee.run(
   %{
-    "pattern" => fn -> pattern.() end,
-    "regexp" => fn -> regex.() end
+    "Name.NormalizerPattern" => fn -> pattern.() end,
+    "Name.Normalize" => fn -> regex.() end
   },
-  time: 10
+  time: 30
 )

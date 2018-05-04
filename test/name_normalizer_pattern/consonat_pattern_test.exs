@@ -1,4 +1,4 @@
-defmodule Name.NormalizerPattern.ConsonatPatternTest do
+defmodule Name.NormalizerPattern.ProcessorTest do
   use ExUnit.Case
-  doctest Name.NormalizerPattern.ConsonatPattern
+  doctest Name.NormalizerPattern.Processor
 end

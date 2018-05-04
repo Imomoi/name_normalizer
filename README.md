@@ -1,20 +1,47 @@
 # Name.Normalizer
 
-**TODO: Add description**
+Преобразование имен в формат, применимый для фонетического поиска.
 
-## Installation
+Реализовано два алгоритма:
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+* с использованием регулярных выражений ``Name.Normalizer``
+* с использованием pattern matching ``Name.NormalizerPattern``
 
-  1. Add name_normalizer to your list of dependencies in `mix.exs`:
+## Подготовка и выполнение тестов
 
-        def deps do
-          [{:name_normalizer, "~> 0.0.1"}]
-        end
+    mix geps.get
+    mix test
 
-  2. Ensure name_normalizer is started before your application:
+## Выполнение сравнительного теста на быстродействие
 
-        def application do
-          [applications: [:name_normalizer]]
-        end
+Для запуска сравнительного теста необходимо выполнить следующую команду:
+
+    mix run lib/bench.exs
+
+Результат выполнения
+
+    Operating System: macOS
+    CPU Information: Intel(R) Core(TM) i5-6267U CPU @ 2.90GHz
+    Number of Available Cores: 4
+    Available memory: 8 GB
+    Elixir 1.6.1
+    Erlang 20.2.2
+    Benchmark suite executing with the following configuration:
+    warmup: 2 s
+    time: 30 s
+    parallel: 1
+    inputs: none specified
+    Estimated total run time: 1.07 min
+
+
+    Benchmarking Name.Normalize...
+    Benchmarking Name.NormalizerPattern...
+
+    Name                             ips        average  deviation         median         99th %
+    Name.NormalizerPattern       78.09 K       12.81 μs   ±614.56%          10 μs          26 μs
+    Name.Normalize                2.49 K      402.26 μs     ±9.58%         393 μs         555 μs
+
+    Comparison: 
+    Name.NormalizerPattern       78.09 K
+    Name.Normalize                2.49 K - 31.41x slower
 
